@@ -41,7 +41,6 @@ prueba-tecnica-01/
 │   │   │   └── offer_creation_sequence.puml
 │   │   └── usecase/
 │   │       └── offer_usecase.puml
-│   └── README.md   <- Documentación interna de la parte gráfica y ADRs
 ├── src/
 │   ├── main/
 │   │   └── java/
@@ -136,4 +135,32 @@ Para ejecutar las pruebas unitarias y de integración, utiliza el siguiente coma
 mvn test
 ```
 
-### Documentación Adicional
+## Documentación Adicional
+
+- **Diagramas PlantUML:**  
+  Los diagramas de secuencia y casos de uso se encuentran en `docs/diagrams/`. Puedes visualizarlos usando un servidor de PlantUML o mediante la herramienta local:
+  
+  ```bash
+  java -jar plantuml.jar docs/diagrams/sequence/offer_creation_sequence.puml
+  java -jar plantuml.jar docs/diagrams/usecase/offer_usecase.puml
+
+## ADR (Architectural Decision Records):
+
+Todas las decisiones arquitectónicas relevantes se documentan en la carpeta `docs/adr/`. Revisa estos documentos para entender las decisiones clave que guían el desarrollo del proyecto.
+
+## Servidor de PlantUML en Docker
+
+Si deseas correr el servidor de PlantUML en un contenedor Docker (de forma independiente del Dockerfile del proyecto), sigue estos pasos:
+
+1. **Descargar la imagen oficial de PlantUML:**
+
+   ```bash
+   docker pull plantuml/plantuml-server:jetty
+
+Ejecutar el contenedor de PlantUML:
+
+```bash
+docker run -d -p 8081:8080 --name plantuml-server plantuml/plantuml-server:jetty
+```
+
+Ahora podrás acceder al servidor en [http://localhost:8081](http://localhost:8081).
