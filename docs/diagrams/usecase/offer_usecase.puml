@@ -1,0 +1,23 @@
+@startuml offer_usecase
+left to right direction
+actor "Administrador" as Admin
+actor "Cliente" as Client
+
+rectangle "Sistema de Ofertas" {
+  usecase "Crear Oferta" as UC1
+  usecase "Eliminar Oferta" as UC2
+  usecase "Consultar Ofertas" as UC3
+  usecase "Consultar Oferta por ID" as UC4
+  usecase "Consultar Timetable" as UC5
+}
+
+Admin --> UC1 : Realiza
+Admin --> UC2 : Realiza
+Admin --> UC3 : Realiza
+Admin --> UC4 : Realiza
+Admin --> UC5 : Realiza
+
+Client --> UC3 : Consulta
+Client --> UC4 : Consulta
+Client --> UC5 : Consulta
+@enduml

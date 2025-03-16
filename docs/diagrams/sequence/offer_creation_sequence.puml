@@ -1,0 +1,13 @@
+@startuml offer_creation_sequence
+actor Cliente
+participant "OfferController" as OC
+participant "OfferService" as OS
+participant "OfferRepository" as OR
+
+Cliente -> OC: POST /offer {offer data}
+OC -> OS: createOffer(offer)
+OS -> OR: save(offer)
+OR --> OS: offerSaved
+OS --> OC: offerSaved
+OC --> Cliente: 201 Created (offer data)
+@enduml
